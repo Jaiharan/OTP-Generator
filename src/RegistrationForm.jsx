@@ -14,9 +14,9 @@ const RegistrationForm = () => {
     try {
       const response = await axios.post('http://localhost:4000/auth/register', {username, email, password})
       setMessage(response.data.message);
-      // if(response.data.result[0].message === 'User registered successfully') {
-      //     history.push('/verify');
-      // }
+      if(response.data.result[0].message === 'User registered successfully') {
+          window.alert("Registered Check Mail for OTP Verification");
+      }
     } catch (error) {
       setMessage(error.response.data.message);
     }
